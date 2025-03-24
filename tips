@@ -1,0 +1,102 @@
+/*
+BITSET METHODS
+1. Constructor
+bitset<N>() → Default constructor, initializes all bits to 0.
+bitset<N>(unsigned long long val) → Initializes from an integer.
+bitset<N>(string s, size_t pos = 0, size_t n = string::npos, char zero = '0', char one = '1') → Initializes from a string.
+2. Access and Modification
+set() → Sets all bits to 1.
+set(size_t pos, bool value = true) → Sets a specific bit to 1 or 0.
+reset() → Resets all bits to 0.
+reset(size_t pos) → Resets a specific bit to 0.
+flip() → Flips all bits (1 → 0 and 0 → 1).
+flip(size_t pos) → Flips a specific bit.
+3. Query Operations
+test(size_t pos) → Returns true if the bit at position pos is set (1), otherwise false.
+all() → Returns true if all bits are 1.
+any() → Returns true if at least one bit is 1.
+none() → Returns true if all bits are 0.
+count() → Returns the number of bits set to 1.
+size() → Returns the total number of bits.
+4. Conversion
+to_ulong() → Converts to unsigned long.
+to_ullong() → Converts to unsigned long long.
+to_string(char zero = '0', char one = '1') → Converts to a string representation.
+5. Bitwise Operations
+operator&= → Bitwise AND.
+operator|= → Bitwise OR.
+operator^= → Bitwise XOR.
+operator~() → Bitwise NOT.
+operator<<() → Left shift.
+operator>>() → Right shift.
+tips:
+1)number of elements in interval (with any increment)
+= ((last-start)/increment) +1
+2)calculate the sum of element from start to end
+= (start+end)/2 *number of elements in interval;
+3) log10(!N) = log10(1) + log10(2) + ..... log10(n)
+4) calculate the combinations of array a1 a2 a3 a4 a5
+= (n*(n-1))/2;
+5)to know the numbers between L to R
+upperbound(R)-LowerBound(L);
+
+
+
+((bitmask)!!!)
+1) __builtin_popcountll(bitmask) --> number of 1s' bits
+2)instead of if(n%2) --> if(n&1) (even or odd)
+3)to check that particular bit 
+is one or zero --> (bitmask&(1<<idx))
+remember idx : is the th-place of bit (0-index)(right to left)
+4)to know that number is power of 2 -->(number & (number-1))
+except zero (edge case)
+5)to print the binary represenation of n
+for(ll i=30;i>=0;i--)
+{
+	if(n & (1<<i)==0)
+		cout << 0;
+	else
+		cout << 1;
+}
+6)to toggle the particular bit (either 0 or 1)
+-->(bitmask ^ (1<<idx))
+such that idx is the th-place of bit(0-index)(right to left)
+7)to set the particular bit with (1)
+-->(bitmask | (1<<idx))
+such that idx is the th-place of bit(0-index)(right to left)
+8)to set the particular bit with (0)
+-->(bitmask & ~(1<<idx))
+such that idx is the th-place of bit(0-index)(right to left)
+9) (a xor b)xor b = a
+10) X/2^k = X>>k 
+11) X*2^k = X<<k
+12)finding (X%(2 power k))=(X&((1<<k)-1))
+13)swaping 2 numbers with xor!
+14)
+Some properties of bitwise operations:
+a|b = a⊕b + a&b
+a⊕(a&b) = (a|b)⊕b
+b⊕(a&b) = (a|b)⊕a
+(a&b)⊕(a|b) = a⊕b
+Addition:
+a+b = a|b + a&b
+a+b = a⊕b + 2(a&b)
+Subtraction:
+a-b = (a⊕(a&b))-((a|b)⊕a)
+a-b = ((a|b)⊕b)-((a|b)⊕a)
+a-b = (a⊕(a&b))-(b⊕(a&b))
+a-b = ((a|b)⊕b)-(b⊕(a&b))
+15) instead of that :
+if(ans==10)
+	ans=5
+else
+	ans=10
+do that !
+ans = 5^10^(ans);
+
+16)
+A=X --> no. of set bits in A
+B=Y --> no. of set bits in B
+A^B=Z --> no. of set bits in (A^B)
+The parity of Z == parity of X+Y
+*/
