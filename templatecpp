@@ -1,0 +1,169 @@
+//typedef vector<ll> vi;
+/*#include <ext/pb_ds/assoc_container.hpp> 
+#include <ext/pb_ds/tree_policy.hpp> 
+using namespace std;
+using namespace __gnu_pbds; 
+template <typename T>
+using ordered_set = tree<T, null_type,less<T>, rb_tree_tag,tree_order_statistics_node_update>;*/
+
+
+ll check_prime(ll res)
+{
+	if(res==1||res==0)
+		return 0;
+	ll final = res;
+	for(ll i = 2 ;i*i<=res;i++)
+	{
+		if(res%i==0)
+		{
+			return 0;
+		}
+	}
+	return 1;
+}
+ 
+ll lcm(ll a, ll b) 
+{ 
+    return (a / gcd(a, b)) * b; 
+} 
+class students
+{
+	public:
+	string name;
+	ll A;
+};
+ 
+bool compare(students &a,students  &b)
+{
+	if(a.A==b.A)
+	{
+		return a.name<b.name;
+	}
+	return a.A>b.A;
+}
+ 
+
+void Mind(){
+    //freopen("limited.in", "r", stdin);
+    //freopen("output.txt", "w", stdout);
+ 
+ 
+}
+ 
+ll fast_power(ll base, ll power) {
+    ll result = 1;
+    base = base % ((ll)1e9 +7);
+    while(power > 0) {
+ 
+        if(power % 2 == 1) { 
+            result = (result*base) %((ll)1e9 +7);
+        }
+        base = (base * base) %((ll)1e9 +7);
+        power = power / 2; 
+    }
+    return result;
+}
+vector<ll>ar2;
+vector<ll> ar(10000002);
+map<ll,ll>mp_s;
+void sieve()
+{
+	ar[0]=1;
+	ar[1]=1;
+	for(ll i=2;i*i<=10000001;i++)
+	{
+		if(ar[i]==0)
+		{
+			for(ll j=i*i;j<=10000001;j+=i)
+			{
+				if(ar[j]==0)
+				{
+					ar[j]=1;
+				}
+			}
+		}
+	}
+	for(ll i=2;i<=10000001;i++)
+	{
+		if(ar[i]==0&&i%5==1)
+		{
+			ar2.emplace_back(i);
+		}
+	}
+}
+void prime_fact(ll n ,ll &f)
+{
+	vector<pair<ll,ll>>fac;
+	for(ll i=2;i*i<=n;i++)
+	{
+		if(n%i==0)
+		{
+			ll c=0;
+			while(n%i==0)
+			{
+				c++;
+				n/=i;
+			}
+			fac.emplace_back(make_pair(i,c));
+		}
+	}
+	if(n>1)
+	{
+		fac.emplace_back(make_pair(n,1));
+		
+	}
+}
+ 
+ll gcdd(ll A, ll B)
+{
+	if(B==0)
+		return A;
+	else
+		return gcdd(B,A%B);
+}
+ 
+}*/
+ 
+/*
+ull nPr(ull n, ull r) {
+	if (r > n)
+		return 0;
+	unsigned long long p = 1, i = n - r + 1;
+	while (i <= n)
+		p *= i++;
+	return p;
+}
+ull nCr(ll n, ll k) {
+	if(n < k)
+		return 0;
+    k = max(k,n-k); /nCr(n,r) = nCr(n,n-r)
+    ull ans = 1, div = 1, i = r + 1;
+    while (i <= n) {
+		ans *= i;
+		i++;
+		ans /= div;
+		div++;
+	}
+	return ans;
+}
+*/
+/*ll bin_search(vector<ll>&arr , ll ele)
+{
+	ll start=0,end=arr.size()-1,mid=(start+end)/2
+	, in=-1;
+	while(start<=end)
+	{
+		if(arr[mid]>=ele)
+		{
+			in=max(in,mid);
+			start = mid+1;
+		}
+		else
+		{
+			end = mid-1;
+		}
+		mid=(start+end)/2;
+	}
+	return in+1;
+}
+*/
