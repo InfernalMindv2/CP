@@ -39,7 +39,12 @@ tips:
 = (n*(n-1))/2;
 5)to know the numbers between L to R
 upperbound(R)-LowerBound(L);
-
+6)If you have 2 vectors and you want to find minimum absolute diff ,
+you should :
+1-sort both arrays
+2-lowerbound the opposite array (ex : min.lowerbound(mx[i]))
+3- now you have the value >= mx[i] , so you try to attempt the value<mx[i] to see if it is better of not ( because if the value > mx[i] , it doesnt gurannted that 
+the distance is optimal so we go to behind if possible <3 )
 
 
 ((bitmask)!!!)
